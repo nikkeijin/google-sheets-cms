@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>GS CMS</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- Filter by Category -->
+        <div>
+            <select id="categoryFilter" v-model="categoryFilter">
+                <option value="">All</option>
+                <option v-for="category in categories" :value="category" :key="category">{{ category }}</option>
+            </select>
+        </div>
+
+        <!-- The Posts -->
+        <ul>
+            <li v-for="post in filteredPosts" :key="post.id">
+                <div>{{ post.title }}</div>
+                <div>{{ post.content }}</div>
+                <div><img :src="post.thumbnail" :alt="post.alt"></div>
+                <div>{{ post.category }}</div>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
