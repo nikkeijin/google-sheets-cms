@@ -1,4 +1,4 @@
-const endPoint = 'https://script.googleusercontent.com/macros/echo?';
+const endPoint = 'THE_URL_OF_YOUR_GOOGLE_SHEETS_JSON';
 
 const app = Vue.createApp({
   data() {
@@ -11,13 +11,10 @@ const app = Vue.createApp({
   async created() {
       const response = await fetch(endPoint);
       const jsonData = await response.json();
-
       this.posts = jsonData;
-      console.log(jsonData);
-
+      //console.log(jsonData);
       this.categories = [...new Set(jsonData.map(post => post.category))];
-      console.log(jsonData.map(post => post.category));
-
+      //console.log(jsonData.map(post => post.category));
   },
   computed: {
     filteredPosts() {
