@@ -1,3 +1,28 @@
+# Google Sheet as CMS
+
+This is a project which I made to use Google Sheet as CMS.    
+You can even use this project to create a Google Sheet Management which would filter your data. And this is what I did to show a example of.
+
+
+Note: In this exemple I am using Vue.js to fetch the Google Sheet API, but feel free to use whatever you feel confortable with, such as React.   
+    
+# How to use the example file
+
+Create a Google Sheet with the following columns:   
+1. title
+2. content
+3. alt
+4. category
+5. tag
+
+    
+ After done so, open the app.js and add the URL of your Google Sheet JSON to the endPoint const.
+ ```JavaScript
+ const endPoint = 'THE_URL_OF_YOUR_GOOGLE_SHEETS_JSON';
+  ```
+    
+Now you should see your data being fetched by Vue.js on your front-end!
+    
 # Outputting JSON with Google Sheet
 
 1. Open your Google Sheet and go to "Extensions" > "Apps Script" to open the Apps Script editor.    
