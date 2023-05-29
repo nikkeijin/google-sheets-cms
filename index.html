@@ -17,15 +17,20 @@
                 <option value="">All</option>
                 <option v-for="category in categories" :value="category" :key="category">{{ category }}</option>
             </select>
+            <select id="tagFilter" v-model="tagFilter">
+                <option value="">All</option>
+                <option v-for="tag in tags" :value="tag" :key="tag">{{ tag }}</option>
+            </select>
         </div>
 
         <!-- The Posts -->
         <ul>
             <li v-for="post in filteredPosts" :key="post.id">
                 <div>{{ post.title }}</div>
+                <div>{{ post.category }}</div>
                 <div>{{ post.content }}</div>
                 <div><img :src="post.thumbnail" :alt="post.alt"></div>
-                <div>{{ post.category }}</div>
+                <div>{{ post.tag }}</div>
             </li>
         </ul>
 
