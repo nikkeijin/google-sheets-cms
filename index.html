@@ -11,12 +11,14 @@
 
     <div id="app">
 
-        <!-- Filter by Category -->
+        <!-- Filter by Category or Tag -->
         <div>
+            <!-- Category Filter -->
             <select id="categoryFilter" v-model="categoryFilter">
                 <option value="">All</option>
                 <option v-for="category in categories" :value="category" :key="category">{{ category }}</option>
             </select>
+            <!-- Tag Filter -->
             <select id="tagFilter" v-model="tagFilter">
                 <option value="">All</option>
                 <option v-for="tag in tags" :value="tag" :key="tag">{{ tag }}</option>
