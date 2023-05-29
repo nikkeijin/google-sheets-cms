@@ -13,8 +13,8 @@ Note: In this exemple I am using Vue.js to fetch the Google Sheet API, but feel 
 Create a Google Sheet with the following columns:   
 1. title
 2. content
-3. thumbnail
-4. alt
+3. thumbnail (add the img url to display in your post)
+4. alt (add the alt of the img)
 5. category
 6. tag
                 
