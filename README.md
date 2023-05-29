@@ -11,9 +11,10 @@ Note: In this exemple I am using Vue.js to fetch the Google Sheet API, but feel 
 Create a Google Sheet with the following columns:   
 1. title
 2. content
-3. alt
-4. category
-5. tag
+3. thumbnail
+4. alt
+5. category
+6. tag
 
     
  After done so, open the app.js and add the URL of your Google Sheet JSON to the endPoint const.
