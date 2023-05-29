@@ -18,20 +18,20 @@
             <div class="flex flex-col gap-4 sm:flex-row">
                 <!-- Category Filter -->
                 <select id="categoryFilter" v-model="categoryFilter" class="appearance-none bg-slate-50 rounded-md text-emerald-400 p-2">
-                    <option value="">All</option>
+                    <option value="">All Categories</option>
                     <option v-for="category in categories" :value="category" :key="category">{{ category }}</option>
                 </select>
                 <!-- Tag Filter -->
                 <select id="tagFilter" v-model="tagFilter" class="appearance-none bg-slate-50 rounded-md text-emerald-400 p-2">
-                    <option value="">All</option>
+                    <option value="">All Tags</option>
                     <option v-for="tag in tags" :value="tag" :key="tag">{{ tag }}</option>
                 </select>
             </div>
         </div>
 
-        <!-- Post Wrapper -->
+        <!-- The Wrapper -->
         <ul class="w-full p-8 flex items-center flex-col gap-8">
-            <!-- Posts -->
+            <!-- The Posts -->
             <li v-for="post in filteredPosts" :key="post.id" class="w-4/5 border border-white">
                 <div class="w-full p-4 border border-white text-xl text-emerald-400">{{ post.title }}</div>
                 <div class="w-full p-4 border border-white text-xs text-emerald-100">{{ post.category }}</div>
