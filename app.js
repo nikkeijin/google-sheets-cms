@@ -5,25 +5,35 @@ const app = Vue.createApp({
     return {
       posts: [],
       categoryFilter: '',
-      categories: []
+      categories: [],
+      tagFilter: '',
+      tags: []
     };
   },
   async created() {
       const response = await fetch(endPoint);
       const jsonData = await response.json();
       this.posts = jsonData;
-      //console.log(jsonData);
+
       this.categories = [...new Set(jsonData.map(post => post.category))];
-      //console.log(jsonData.map(post => post.category));
+      this.tags = [...new Set(jsonData.map(post => post.tag))];
   },
   computed: {
     filteredPosts() {
-      if (this.categoryFilter === '') {
+      if (this.categoryFilter === '' && this.tagFilter === '') {
         return this.posts;
       } else {
-        return this.posts.filter(post => post.category === this.categoryFilter);
+        return this.posts.filter(post => {
+          if (this.categoryFilter !== '' && post.category !== this.categoryFilter) {
+            return false;
+          }
+          if (this.tagFilter !== '' && !post.tag.includes(this.tagFilter)) {
+            return false;
+          }
+          return true;
+        });
       }
     }
-  },
+  },  
 });
 app.mount('#app');
