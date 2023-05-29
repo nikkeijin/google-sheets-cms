@@ -3,7 +3,7 @@
 This is a project which I made to use Google Sheet as CMS.      
 Yes, Google Sheet will be your Database so you can edit the data directly and the data will be rendered in your front-end application automatically!
         
-You can even use this project to create a Google Sheet Management System which would filter your data. And this is what I did here to show an example of.
+You can even use this project to create a Google Sheet Data Filter System which would filter your data and show the result you filtered. And this is what I did here to show an example of. This example will have category and tag filter.
 
 
 Note: In this exemple I am using Vue.js to fetch the Google Sheet API, but feel free to use whatever you feel confortable with, such as React.   
