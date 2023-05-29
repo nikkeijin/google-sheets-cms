@@ -20,7 +20,7 @@ Create a Google Sheet with the following columns:
                 
 Then fill each column data.
     
- After done so, open the app.js and add the URL of your Google Sheet JSON into the endPoint const.
+ After done so, open the app.js and add the URL of your Google Sheet JSON (see Outputting JSON with Google Sheet to get the URL of) into the endPoint const.
  ```JavaScript
  const endPoint = 'THE_URL_OF_YOUR_GOOGLE_SHEETS_JSON';
   ```
