@@ -69,20 +69,55 @@ To prevent the automatic update of JSON data is to use the Properties Service in
 Here's an example of how you can implement this approach:               
 
 ```JavaScript
+// Function to create the custom menu
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu('Custom Menu')
+    .addItem('Update JSON Data', 'updateJSONData')
+    .addToUi();
+}
+
+// Function to retrieve the cached JSON data from script properties
 function getCachedJSONData() {
   var scriptProperties = PropertiesService.getScriptProperties();
   var cachedData = scriptProperties.getProperty('cachedJSONData');
   return cachedData ? JSON.parse(cachedData) : null;
 }
 
+// Function to store the JSON data into script properties for caching
 function cacheJSONData(jsonData) {
   var scriptProperties = PropertiesService.getScriptProperties();
   scriptProperties.setProperty('cachedJSONData', JSON.stringify(jsonData));
 }
 
+// Function to manually update the JSON data by fetching from the spreadsheet
+function updateJSONData() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+
+  var jsonData = [];
+  var headers = data[0];
+
+  for (var i = 1; i < data.length; i++) {
+    var row = data[i];
+    var rowData = {};
+
+    for (var j = 0; j < headers.length; j++) {
+      rowData[headers[j]] = row[j];
+    }
+
+    jsonData.push(rowData);
+  }
+
+  cacheJSONData(jsonData);
+
+  SpreadsheetApp.getUi().alert('JSON data updated successfully!');
+}
+
+// Function to handle HTTP GET requests and serve the JSON data
 function doGet() {
   var cachedData = getCachedJSONData();
-  
+
   if (cachedData === null) {
     // JSON data is not yet cached, fetch it from the spreadsheet
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -110,3 +145,5 @@ function doGet() {
     .setMimeType(ContentService.MimeType.JSON);
 }
 ```
+                
+Note: The Google Spreadsheet with the code above will have a Custom Menu with 'Update JSON data' option. You may use to update the JSON data whenever you want!
