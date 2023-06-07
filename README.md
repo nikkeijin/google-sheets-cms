@@ -62,7 +62,7 @@ function doGet() {
 
 # Optional
                 
-# Preventing the automatic update of JSON data
+> Preventing the automatic update of JSON data
 
 To prevent the automatic update of JSON data is to use the Properties Service in Google Apps Script to store and retrieve the JSON data. The Properties Service allows you to store KEY-VALUE pairs persistently in the script properties.              
 
