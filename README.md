@@ -59,3 +59,50 @@ function doGet() {
     .setMimeType(ContentService.MimeType.JSON);
 }
 ```
+                
+To prevent the automatic update of JSON data is to use the Properties Service in Google Apps Script to store and retrieve the JSON data. The Properties Service allows you to store KEY-VALUE pairs persistently in the script properties.              
+
+Here's an example of how you can implement this approach:               
+
+```JavaScript
+function getCachedJSONData() {
+  var scriptProperties = PropertiesService.getScriptProperties();
+  var cachedData = scriptProperties.getProperty('cachedJSONData');
+  return cachedData ? JSON.parse(cachedData) : null;
+}
+
+function cacheJSONData(jsonData) {
+  var scriptProperties = PropertiesService.getScriptProperties();
+  scriptProperties.setProperty('cachedJSONData', JSON.stringify(jsonData));
+}
+
+function doGet() {
+  var cachedData = getCachedJSONData();
+  
+  if (cachedData === null) {
+    // JSON data is not yet cached, fetch it from the spreadsheet
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = sheet.getDataRange().getValues();
+
+    var jsonData = [];
+    var headers = data[0];
+
+    for (var i = 1; i < data.length; i++) {
+      var row = data[i];
+      var rowData = {};
+
+      for (var j = 0; j < headers.length; j++) {
+        rowData[headers[j]] = row[j];
+      }
+
+      jsonData.push(rowData);
+    }
+
+    cacheJSONData(jsonData);
+    cachedData = jsonData;
+  }
+
+  return ContentService.createTextOutput(JSON.stringify(cachedData))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
