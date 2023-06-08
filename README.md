@@ -60,6 +60,8 @@ function doGet() {
 }
 ```
 
+Note: This way the JSON data will be updated in real time whenever you edit a cell on Google Sheets. To avoid this, you may use the option below which will not update the JSON data automatically and will have a menu with an option to update the data whenever you want.
+
 # Optional
                 
 > Preventing the automatic update of JSON data
