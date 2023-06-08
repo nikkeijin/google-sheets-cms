@@ -68,7 +68,7 @@ Note: This way the JSON data will be updated in real time whenever you edit a ce
 
 To prevent the automatic update of JSON data is to use the Properties Service in Google Apps Script to store and retrieve the JSON data. The Properties Service allows you to store KEY-VALUE pairs persistently in the script properties.              
 
-Note: The Google Spreadsheet with the code above will have a Custom Menu with 'Update JSON data' option. You may use to update the JSON data whenever you want!         
+Note: The Google Spreadsheet with the code below will have a Custom Menu with 'Update JSON data' option, you may use this option to update the JSON data whenever you want!         
 
 Here's an example of how you can implement this approach:               
 
