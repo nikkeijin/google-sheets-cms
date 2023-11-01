@@ -8,7 +8,7 @@ You can even use this project to create a Google Sheet Data Filter System which 
 
 Note: In this exemple I am using Vue.js to fetch the Google Sheet API, but feel free to use whatever you feel confortable with, such as React.   
     
-# How to use the example file
+## How to use the example file
 
 Create a Google Sheet with the following columns:   
 1. title
@@ -27,7 +27,7 @@ Then fill each column data.
     
 Now you should see your data being fetched by Vue.js on your front-end!
     
-# Outputting JSON with Google Sheet
+## Outputting JSON with Google Sheet
 
 1. Open your Google Sheet and go to "Extensions" > "Apps Script" to open the Apps Script editor.    
 2. In the Apps Script editor, delete any existing code and replace it with the following code.    
@@ -62,7 +62,7 @@ function doGet() {
 
 Note: This way the JSON data will be updated in real time whenever you edit a cell on Google Sheets. To avoid this, you may use the option below which will not update the JSON data automatically and will have a menu with an option to update the data whenever you want.
 
-# Optional
+## Optional
                 
 > Preventing the automatic update of JSON data
 
